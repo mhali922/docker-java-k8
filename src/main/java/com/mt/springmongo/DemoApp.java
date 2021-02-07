@@ -1,27 +1,21 @@
-package com.mt.springmongo;
+package hello;
 
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.stereotype.Controller;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-/**
- * Main Application controller.
- *
- * @author Mithun 
- */
-@Controller
-@EnableAutoConfiguration
-@ComponentScan(basePackages = "com.mt.*")
-public class DemoApp {
-
-    public static void main(String[] args) {
-        SpringApplication.run(DemoApp.class, args);
-    }
+@SpringBootApplication
+@RestController
+public class Application {
 
     @RequestMapping("/")
-    public String index() {
-        return "index.html";
+    public String home() {
+        return "Hello World - in Docker Container";
     }
+
+    public static void main(String[] args) {
+        SpringApplication.run(Application.class, args);
+    }
+
 }
